@@ -15,7 +15,7 @@ public class Main {
                 System.out.println("Cipher: " + encrypted);
 
                 System.out.println("characters list");
-                Key key = new Key();
+                Helper key = new Helper();
 
                 for (Character element : key.characters) {
                         System.out.print(element + " ");

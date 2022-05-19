@@ -1,7 +1,7 @@
 package Cesar;
 
 public class CesarCode {
-    static Key key = new Key();
+    static Helper key = new Helper();
     static int sizeOfKey = key.characters.size();
 
     static StringBuffer enCrypt(String text, int s) {
