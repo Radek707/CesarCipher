@@ -3,9 +3,9 @@ package Cesar;
 public class Main {
         public static void main(String[] args) {
                 String text = "ATTACKATONCE";
-                File sample = new File();
+                FileOperations sample = new FileOperations();
 
-                text = sample.readFile("path");
+                text = sample.readFile("test.txt");//TODO need to improve this to read all lines from the file
 
                 int s = 3;
 
