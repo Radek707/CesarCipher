@@ -2,16 +2,14 @@ package Cesar;
 
 public class Main {
         public static void main(String[] args) {
-                String text = "ATTACKATONCE";
+                CesarCode cesarCode = new CesarCode();
+
                 FileOperations sample = new FileOperations();
+                String text = sample.readFile("test.txt");
 
-                text = sample.readFile("test.txt");
-
-                int s = 3;
-
-                String encrypted = String.valueOf(CesarCode.enCrypt(text, s));
+                String encrypted = String.valueOf(cesarCode.enCrypt(text, 3));
                 System.out.println("Text  : " + text);
-                System.out.println("Shift : " + s);
+                System.out.println("Shift : " + cesarCode.shift);
                 System.out.println("Cipher: " + encrypted);
 
                 System.out.println("characters list");
@@ -26,7 +24,7 @@ public class Main {
                 String textToDecrypt = encrypted;
 
                 System.out.println("Text  : " + textToDecrypt);
-                System.out.println("Shift : " + s);
-                System.out.println("Decrypted : " + CesarCode.deCrypt(textToDecrypt, s));
+                System.out.println("Shift : " + cesarCode.shift);
+                System.out.println("Decrypted : " + cesarCode.deCrypt(textToDecrypt, 3));
         }
 }
