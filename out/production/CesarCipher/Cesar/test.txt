@@ -1,0 +1,3 @@
+Sample text for encoding
+Sample text digits 1234567890 and special marks *|#@ end of text
+End of file

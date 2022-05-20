@@ -36,8 +36,8 @@ public class CesarCode implements Crytpography {
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
             int index = (key.characters.indexOf(ch) - shift) % sizeOfKey;
-            char encryptedCh = key.characters.get(index);
-            result.append(encryptedCh);
+            char deCryptedChar = key.characters.get(index);
+            result.append(deCryptedChar);
         }
         return result.toString();
     }
