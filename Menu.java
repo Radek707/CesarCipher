@@ -2,6 +2,7 @@ package Cesar;
 
 /*
 User menu //TODO make it done
+<<<<<<< HEAD
 1. Encrypt
     1.1 From console
     1.2 From file
@@ -15,6 +16,8 @@ User menu //TODO make it done
 3. Crack
     3.1 Brute force
     3.2 Statistic approach
+=======
+>>>>>>> origin/main
  */
 public class Menu {
 }
