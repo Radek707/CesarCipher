@@ -5,9 +5,10 @@ public class Main {
                 CesarCode cesarCode = new CesarCode();
 
                 FileOperations sample = new FileOperations();
-                String text = sample.readFile("test.txt");
+                //String text = sample.readFile("test.txt");
+                String text = "sample";
 
-                String encrypted = String.valueOf(cesarCode.enCrypt(text, 3));
+                String encrypted = String.valueOf(cesarCode.enCrypt(text, 10));
                 System.out.println("Text  : " + text);
                 System.out.println("Shift : " + cesarCode.shift);
                 System.out.println("Cipher: " + encrypted);
@@ -27,7 +28,8 @@ public class Main {
                 output.writeToFile(encrypted, "encryptedtext");
 
                 System.out.println("Text  : " + textToDecrypt);
+                String decrypted = cesarCode.deCrypt(textToDecrypt, 10);
                 System.out.println("Shift : " + cesarCode.shift);
-                System.out.println("Decrypted : " + cesarCode.deCrypt(textToDecrypt, 3));
+                System.out.println("Decrypted : " + decrypted);
         }
 }
