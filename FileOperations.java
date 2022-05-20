@@ -1,14 +1,11 @@
 package Cesar;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class FileOperations {
     // read and write operations on file, for now only sample string
 
-    static String readFile(String path) {
+    String readFile(String path) {
         File file = new File(path);
         BufferedReader reader = null;
 
@@ -35,7 +32,25 @@ public class FileOperations {
         return null;
     }
 
-    static void writeToFile(String text) {
-        System.out.println("Encrytpted sample text: " + text);
+    String readFileByline(String path) {
+        return null;
+    }
+
+    void writeToFile(String text, String nameOfFile) {
+        File file = new File(nameOfFile + ".txt");
+        BufferedWriter writer = null;
+
+        try {
+            writer = new BufferedWriter(new FileWriter(file));
+            writer.write(text);
+        } catch (IOException e) {
+            System.out.println("Something went wrong with file writing");
+        } finally {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

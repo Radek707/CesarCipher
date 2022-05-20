@@ -23,6 +23,9 @@ public class Main {
 
                 String textToDecrypt = encrypted;
 
+                FileOperations output = new FileOperations();
+                output.writeToFile(encrypted, "encryptedtext");
+
                 System.out.println("Text  : " + textToDecrypt);
                 System.out.println("Shift : " + cesarCode.shift);
                 System.out.println("Decrypted : " + cesarCode.deCrypt(textToDecrypt, 3));
