@@ -5,7 +5,7 @@ public class Main {
                 String text = "ATTACKATONCE";
                 FileOperations sample = new FileOperations();
 
-                text = sample.readFile("test.txt");//TODO need to improve this to read all lines from the file
+                text = sample.readFile("test.txt");
 
                 int s = 3;
 
