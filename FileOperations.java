@@ -32,10 +32,6 @@ public class FileOperations {
         return null;
     }
 
-    String readFileByline(String path) {
-        return null;
-    }
-
     void writeToFile(String text, String nameOfFile) {
         File file = new File(nameOfFile + ".txt");
         BufferedWriter writer = null;
