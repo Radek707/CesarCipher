@@ -1,3 +1,19 @@
-Sample text for encoding
-Sample text digits 1234567890 and special marks *|#@ end of text
-End of file
+Commodity prices surged in the immediate
+aftermath of the war in Ukraine, particularly for
+commodities for which Russia and Ukraine are
+key exporters (figure SF.1). Commodity prices
+have been extremely volatile, with volatility for
+some commodities (e.g., coal, nickel, and wheat)
+reaching record highs in February and March
+2022. THe recent rise in prices reflects supply
+disruptions, higher input costs, and geopolitical
+risk premia. It comes on top of already tight
+commodity markets driven by a strong demand
+recovery from the pandemic, and numerous
+pandemic-related supply constraints. Reflecting
+these developments, between January 2020 and
+December 2021, the World Bank’s energy and
+non-energy price indexes increased by 50 and 40
+percent, respectively, while between January and
+March 2022 the two indexes rose an additional 34
+and 13 percent.

@@ -6,7 +6,10 @@ public interface Crytpography {
 
     String deCrypt(String text, int s);
 
-    String bruteCrack();
+    String bruteCrack(String text);
 
-    String statisticCrack();
+    /*
+            statisticCrack method is using e frequency of letters in English alphabet,
+            */
+    String statisticCrack(String text);
 }
