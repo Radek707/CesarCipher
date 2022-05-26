@@ -1,4 +1,4 @@
-package Cesar;
+package Cesar.Cryptography;
 
 public interface Crytpography {
 

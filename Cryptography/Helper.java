@@ -1,12 +1,12 @@
-package Cesar;
+package Cesar.Cryptography;
 
 import java.util.ArrayList;
 
 public class Helper {
     //set of characters available for encryption
-    ArrayList<Character> characters = new ArrayList<>();
+    public ArrayList<Character> characters = new ArrayList<>();
 
-    Helper() {
+    public Helper() {
         for (int i = 32; i <= 125; i++) {
             if (i >= 35 && i <= 38 ||
                     i == 42 || i == 43 || i == 45 || i >= 47 && i <= 57

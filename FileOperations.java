@@ -5,7 +5,7 @@ import java.io.*;
 public class FileOperations {
     // read and write operations on file, for now only sample string
 
-    String readFile(String path) {
+    public String readFile(String path) {
         File file = new File(path);
         BufferedReader reader = null;
 

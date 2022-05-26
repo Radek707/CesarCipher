@@ -1,4 +1,4 @@
-package Cesar;
+package Cesar.Cryptography;
 
 public class CodeCracking {
     String bruteCrack(String text) {
