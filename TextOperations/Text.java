@@ -6,8 +6,11 @@ import java.util.TreeMap;
 
 public class Text {
 
-    public static void compareFrequencyOfLetters(Map<Character, Double> frequencyInText,
-                                                 Map<Character, Double> frequencyInLanguage, ArrayList<Character> characters) {
+    public static ArrayList<Integer> compareFrequencyOfLetters(Map<Character, Double> frequencyInText,
+                                                               Map<Character, Double> frequencyInLanguage, ArrayList<Character> characters) {
+        //comapareArray is to store in one place
+        //freguencyInText frequncyInLanguage chiSqr
+        //chiSqr calculates the match between frequencyInText and frequencyInLanguage
         int arraySize = frequencyInText.size() * frequencyInLanguage.size();
         Double[][] compareArray = new Double[arraySize][3];
         int i = 0;
@@ -21,10 +24,10 @@ public class Text {
             }
         }
 
-        for (int j = 0; j < compareArray.length; j++) {
-            System.out.println(compareArray[j][0] + " " + compareArray[j][1] + " " +
-                    compareArray[j][2]);
-        }
+//        for (int j = 0; j < compareArray.length; j++) {
+//            System.out.println(compareArray[j][0] + " " + compareArray[j][1] + " " +
+//                    compareArray[j][2]);
+//        }
 
         double min = compareArray[0][2];
 
@@ -35,41 +38,47 @@ public class Text {
         }
 
         int indexOfMin = 0;
+        ArrayList<Integer> indexOfMinList = new ArrayList<>();
 
         for (int j = 0; j < compareArray.length; j++) {
             if (compareArray[j][2] == min) {
                 indexOfMin = j;
+                indexOfMinList.add(j);
             }
         }
 
-        System.out.println("Min chiSqr: " + min + " at index: " + indexOfMin);
+        for (Integer index : indexOfMinList) {
+            System.out.println("Match: " + min + " at index: " + index);//print only for testing, remove when ready
 
-        char characterMatchText = '\u0000';
-        char characterMatchLanguage = '\u0000';
+            char characterMatchText = '\u0000';
+            char characterMatchLanguage = '\u0000';
 
-        for (Map.Entry<Character, Double> pair : frequencyInText.entrySet()) {
-            if (pair.getValue() == (compareArray[indexOfMin][0])) {
-                characterMatchText = pair.getKey();
+            for (Map.Entry<Character, Double> pair : frequencyInText.entrySet()) {
+                if (pair.getValue() == (compareArray[index][0])) {
+                    characterMatchText = pair.getKey();
+                }
             }
+
+            for (Map.Entry<Character, Double> pair : frequencyInLanguage.entrySet()) {
+                if (pair.getValue() == (compareArray[index][1])) {
+                    characterMatchLanguage = pair.getKey();
+                }
+            }
+
+            int indexOfCharMatchText = characters.indexOf(characterMatchText);
+            int indexOfCharMatchLanguage = characters.indexOf(characterMatchLanguage);
+
+            int shiftCalculated = indexOfCharMatchText - indexOfCharMatchLanguage;
+
+            System.out.println("Character in text: " + characterMatchText + " Character in language: " + characterMatchLanguage +
+                    " shift: " + shiftCalculated);
         }
 
-        for (Map.Entry<Character, Double> pair : frequencyInLanguage.entrySet()) {
-            if (pair.getValue() == (compareArray[indexOfMin][1])) {
-                characterMatchLanguage = pair.getKey();
-            }
-        }
-
-        int indexOfCharMatchText = characters.indexOf(characterMatchText);
-        int indexOfCharMatchLanguage = characters.indexOf(characterMatchLanguage);
-
-        int shiftCalculated = indexOfCharMatchText - indexOfCharMatchLanguage;
-
-        System.out.println("Character in text: " + characterMatchText + " Character in language: " + characterMatchLanguage +
-                " shift: " + shiftCalculated);
+        return indexOfMinList;
     }
 
     private static double chiSqr(double o, double e) {
-        return Math.pow((o - e), 2.0) / e;
+        return ((o - e) * (o - e)) / e;
     }
 
     public static Map<Character, Double> findLettersFrequencyInText(String text) {

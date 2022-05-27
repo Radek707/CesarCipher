@@ -1,11 +1,7 @@
-The Russian invasion of Ukraine has caused major
-disruptions to the supply of commodities. Both
-countries are key exporters of energy and
-agricultural products. The disruptions have
-exacerbated existing stresses in commodity
-markets following the recovery from the COVID-
-19 pandemic, which saw rebounding global
-demand and constrained supplies after 2020. As a
+The Russian invasion of Ukraine has caused major disruptions to the supply of commodities. Both
+countries are key exporters of energy and agricultural products. The disruptions have
+exacerbated existing stresses in commodity markets following the recovery from the COVID-
+19 pandemic, which saw rebounding global demand and constrained supplies after 2020. As a
 result, commodity price volatility has surged, with
 food prices reaching levels not seen since the
 2007-08 price spikes. Beyond their broader
@@ -20,11 +16,9 @@ consumers; however, these policies often fall short
 of effectively solving the underlying problems.
 Against this background, this Special Focus
 addresses the following questions:
-• What has been the near-term impact of the
-war on commodity markets?
-• What are the main lessons of past commodity
-price shocks?
-• What are the key policy implications?
+What has been the near-term impact of the
+war on commodity markets? What are the main lessons of past commodity
+price shocks? What are the key policy implications?
 The Russian invasion of Ukraine has been a major shock to commodity markets. The war has led to significant
 disruptions to the production and trade of commodities for which Russia and Ukraine are key exporters. Prices
 have risen sharply for all energy commodities and some food commodities, including wheat and oilseeds. This, in
@@ -38,3 +32,28 @@ will likely once again spur more efficient energy consumption and a faster trans
 particularly if supported by appropriate policy responses. Food production, at the global level, will also respond
 to changes in relative prices. However, the uncertainties for food supply availability stemming from the war are
 high, and low-income countries may have urgent needs for international assistance for a prolonged period.
+Amid overlapping crises over the past two years and the ongoing transition to lower
+carbon intensity, commodity markets are being reshaped. COVID-19 highlighted
+the volatility of these markets: global shocks can boost or drop prices sharply and
+suddenly, with destabilizing consequences for developing economies. The war in
+Ukraine has made the security of energy and supply chains a more prominent goal,
+even if it entails higher costs. Efforts to reduce greenhouse gas emissions are shifting
+demand away from fossil fuels while increasing demand for the metals and materials
+needed to build solar and wind infrastructure and battery storage. The sudden
+disruption of natural gas markets, which have often been providing electricity base
+load during peak demand, brought new concerns about grid stability, grid capacity
+when adding intermittent renewables, and a global return to coal and diesel
+electricity generation.
+This book offers a comprehensive analysis of major commodity markets and
+analyzes how changes in these markets affect the economies of developing countries.
+Over the next three decades, the growth of global demand for commodities is likely
+to decelerate as population growth slows, with many developing economies
+maturing and shifting their demand mix more toward consumption and services.
+The energy transition is likely to bring a major boost to metal-producing economies
+because technologies related to renewable energy tend to be more metals-intensive.
+The ongoing transformation of global commodity markets will have profound
+implications for countries that depend on commodity production for economic
+growth, exports, and fiscal revenues. Countries that depend on commodities
+account for half of the world’s extreme poor. But the report suggests there may be
+differentiation among exporters: fossil-fuel exporters could see a decline in revenues
+while metals exporters reap windfall gains as the energy transition proceeds.

@@ -10,13 +10,14 @@ import Cesar.Language.Language;
 import Cesar.TextOperations.Text;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class CesarCode implements Crytpography {
     public Helper key;
-    int sizeOfKey;
-    int shift;
+    public int sizeOfKey;
+    public int shift;
     Language language;
 
     public Map<Character, Double> EnglishLettersFrequency = new TreeMap<>();
@@ -32,6 +33,7 @@ public class CesarCode implements Crytpography {
 
     @Override
     public String enCrypt(String text, int shift) {
+        text = text.toLowerCase();
         this.shift = shift;
 
         StringBuffer result = new StringBuffer();
@@ -60,6 +62,8 @@ public class CesarCode implements Crytpography {
 
             if (ch == '\n') {
                 result.append("\n");
+            } else if (ch == '\r') {
+                result.append("\r");
             } else {
                 int index = (key.characters.indexOf(ch) - shift) % sizeOfKey;
                 if (index < 0) {
@@ -74,7 +78,43 @@ public class CesarCode implements Crytpography {
 
     @Override
     public String bruteCrack(String text) {
-        return null;
+        String result = null;
+        int correctShift = 0;
+        ArrayList<Integer> realityScoreList = new ArrayList<>();
+
+        for (int i = 1; i < sizeOfKey; i++) {
+            result = deCrypt(text, i);
+            realityScoreList.add(checkIfTextIsReal(result));
+        }
+
+        int maxScore = Collections.max(realityScoreList);
+        correctShift = realityScoreList.indexOf(maxScore);
+        result = deCrypt(text, correctShift + 1);
+
+        return result;
+    }
+
+    public static int checkIfTextIsReal(String text) {
+        ArrayList<String> wantedStrings = new ArrayList<>();
+        ArrayList<String> forbiddenStrings = new ArrayList<>();
+        int realityScore = 0;
+
+        wantedStrings.add("the");
+        wantedStrings.add(", ");
+        wantedStrings.add("and");
+        wantedStrings.add("at");
+        wantedStrings.add("on");
+        wantedStrings.add("while");
+
+        forbiddenStrings.add("aa");
+
+        for (int i = 0; i < wantedStrings.size(); i++) {
+            if (text.contains(wantedStrings.get(i))) {
+                realityScore++;
+            }
+        }
+
+        return realityScore;
     }
 
     /*

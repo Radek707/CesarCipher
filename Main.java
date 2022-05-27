@@ -14,43 +14,48 @@ public class Main {
                 FileOperations sample = new FileOperations();
                 String text = sample.readFile("test.txt");
 
-                sample.writeToFile(cesarCode.enCrypt(text, 1), "encryptedtext");
+                sample.writeToFile(cesarCode.enCrypt(text, 4), "encryptedtext");
 
-                cesarCode.statisticCrack(sample.readFile("encryptedtext.txt"));
-
-                System.out.println("Available characters: ");
-                System.out.println(cesarCode.key.characters);
-
-                //System.out.println(cesarCode.deCrypt(sample.readFile("encryptedtext.txt"), 1));
-// testing mothods for counting frequncy of letters on two different file
-// TODO find out how to compare frequencies to crack cipher
-
-//                System.out.println("text1");
-//                System.out.println(cesarCode.findLettersFrequencyInText(text).toString());
+//                cesarCode.statisticCrack(sample.readFile("encryptedtext.txt"));
 //
-//                System.out.println("text1 enCrypted");
-//                String text1EnCrypted = cesarCode.enCrypt(text, 1);
-//                System.out.println(cesarCode.findLettersFrequencyInText(text1EnCrypted).toString());
-//
+//                System.out.println("Shif used in enCrytion: " + cesarCode.shift);
+//                System.out.println("Available characters count: " + key.characters.size());
+//                System.out.println("Available characters: ");
+//                System.out.println(cesarCode.key.characters);
 
-//                System.out.println("text2");
-//                text = sample.readFile("encryptedtext.txt");
-//                System.out.println(cesarCode.findLettersFrequencyInText(text).toString());
-
-//                String encrypted = String.valueOf(cesarCode.enCrypt(text, 10));
-//                System.out.println("Text  : " + text);
-//                System.out.println("Shift : " + cesarCode.shift);
-//                System.out.println("Cipher: " + encrypted);
+                System.out.println("Brute force result: ");
+                System.out.println(cesarCode.bruteCrack(sample.readFile("encryptedtext.txt")));
 //
+//                //System.out.println(cesarCode.deCrypt(sample.readFile("encryptedtext.txt"), 1));
 //
-//                FileOperations output = new FileOperations();
-//                output.writeToFile(encrypted, "encryptedtext");
+////                System.out.println("text1");
+////                System.out.println(cesarCode.findLettersFrequencyInText(text).toString());
+////
+////                System.out.println("text1 enCrypted");
+////                String text1EnCrypted = cesarCode.enCrypt(text, 1);
+////                System.out.println(cesarCode.findLettersFrequencyInText(text1EnCrypted).toString());
+////
 //
+////                System.out.println("text2");
+////                text = sample.readFile("encryptedtext.txt");
+////                System.out.println(cesarCode.findLettersFrequencyInText(text).toString());
+//
+////                String encrypted = String.valueOf(cesarCode.enCrypt(text, 10));
+////                System.out.println("Text  : " + text);
+////                System.out.println("Shift : " + cesarCode.shift);
+////                System.out.println("Cipher: " + encrypted);
+////
+////
+////                FileOperations output = new FileOperations();
+////                output.writeToFile(encrypted, "encryptedtext");
+////
+//
+//                System.out.println("Decryption test: ");
 //                String textToDecrypt = sample.readFile("encryptedtext.txt");
 //
-//                System.out.println("Text  : " + textToDecrypt);
-//                String decrypted = cesarCode.deCrypt(textToDecrypt, 10);
+//                System.out.println("Text to decrypt : " + textToDecrypt);
+//                String decrypted = cesarCode.deCrypt(textToDecrypt, cesarCode.shift);
 //                System.out.println("Shift : " + cesarCode.shift);
-//                System.out.println("Decrypted : " + decrypted);
+//                System.out.println("Decrypted text: " + decrypted);
         }
 }

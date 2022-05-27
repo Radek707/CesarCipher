@@ -9,8 +9,8 @@ public class Language {
     public Language() {
         lettersFrequencyInLanguage.put('a', 0.084966);
         lettersFrequencyInLanguage.put('b', 0.02072);
-        lettersFrequencyInLanguage.put('c', 0.03844);
-        lettersFrequencyInLanguage.put('d', 0.045388);
+        lettersFrequencyInLanguage.put('c', 0.045388);
+        lettersFrequencyInLanguage.put('d', 0.033844);
         lettersFrequencyInLanguage.put('e', 0.111607);
         lettersFrequencyInLanguage.put('f', 0.018121);
         lettersFrequencyInLanguage.put('g', 0.024705);
