@@ -5,7 +5,6 @@ If the text for encryption contains characters not included in the available cha
  than it will be skipped from encryption
  */
 
-import Cesar.FileOperations;
 import Cesar.Language.Language;
 import Cesar.TextOperations.Text;
 
@@ -121,28 +120,21 @@ public class CesarCode implements Crytpography {
     statisticCrack method is using e frequency of letters in English alphabet,
     */
     @Override
-    public String statisticCrack(String text) {
-        //find a list of characters used in the text
-        ArrayList<Character> characters = new ArrayList<>();
-        characters = Text.findCharactersUsedInText(text);
-
-        //count how many times each character was used in the text
-
+    public String statisticCrackWithSampleText(String text, String sampleText) {
+        //find frequency of each character in text;
         Map<Character, Double> lettersFrequencyInText = new TreeMap<>();
         lettersFrequencyInText = Text.findLettersFrequencyInText(text);
 
-        //compare the frequency with frequency of letters in English language
-
-
+        //find frequency of each character in sample text;
         Map<Character, Double> lettersFrequencyInSampleText = new TreeMap<>();
-        FileOperations file = new FileOperations();
-        String text2 = file.readFile("Files/sample.txt");
-        lettersFrequencyInSampleText = Text.findLettersFrequencyInText(text2);
+        lettersFrequencyInSampleText = Text.findLettersFrequencyInText(sampleText);
 
-        Text.compareFrequencyOfLetters(lettersFrequencyInText, lettersFrequencyInSampleText, key.characters);
+        //find best shift comparing characters frequency between text and sample text
+        //5 most frequent characters are compared
+        //the best shift is the most repeating shift in those 5
+        int foundShift = Text.findShiftByFrequencyOfLetters(lettersFrequencyInText,
+                lettersFrequencyInSampleText, key.characters);
 
-        return null;
+        return deCrypt(text, foundShift);
     }
-
-
 }

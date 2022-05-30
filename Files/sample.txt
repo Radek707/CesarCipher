@@ -57,3 +57,165 @@ growth, exports, and fiscal revenues. Countries that depend on commodities
 account for half of the world’s extreme poor. But the report suggests there may be
 differentiation among exporters: fossil-fuel exporters could see a decline in revenues
 while metals exporters reap windfall gains as the energy transition proceeds.
+This study examines the factors that determine developments in commodity
+markets and analyzes how changes in these markets can affect the economies of
+commodity exporters and importers. The analysis is based on four broad
+approaches. First, it studies the evolution of commodity markets over the past
+century and identifies key drivers of supply, demand, and price movements across
+commodity groups. The drivers include income and population growth,
+industrialization and urbanization, technological innovations, and policy changes.
+Second, it quantifies the relative importance of these drivers for different
+commodity groups and concludes that income plays a crucial role in driving
+demand for industrial commodities over the long term, while agriculture is chiefly
+driven by population growth. Third, it takes a detailed look at the nature and
+drivers of commodity price fluctuations. Fourth, it assesses the impact of
+commodity price fluctuations on commodity exporters and importers.
+Second, the study establishes that commodity markets are highly heterogeneous in
+terms of their drivers and price behavior. Over the past century, agricultural prices
+have declined in real terms, energy prices have risen, and the performance of metal
+prices has been mixed. Further, the cyclical components of energy and metal prices
+follow the business and investment cycles more closely than do most agricultural
+prices. In part, this reflects differences in the drivers of demand for these
+commodities—demand for energy and metals is much more closely related to
+economic growth than is agricultural demand. The relationship between economic
+growth and commodity demand also varies widely across countries, depending on
+the country’s stage of economic development. At low levels of income, commodity
+demand, especially for industrial commodities, rises rapidly with economic growth.
+As incomes rise, however, growth in demand for commodities starts to slow.
+Third, commodity price shocks have asymmetric effects on commodity exporters, in part
+a reflection of the structure of their economies. Oil exporters tend to be less diversified
+and rely more on petroleum for export and fiscal revenues than metal and
+agricultural exporters do on their commodities. As a result, oil-exporting economies
+may be more vulnerable to fluctuations in oil prices than other commodity
+producers are to changes in the prices of the foods or metals they export. There are
+also significant variations in the size, duration, and impact of price fluctuations
+across commodities. Further, price shocks have asymmetric effects: large price
+declines hurt growth in commodity exporters much more, and in a more lasting
+manner, than large price increases benefit their growth. This asymmetric impact
+requires policy responses that, in the midst of upturns, carefully prepare for
+downturns.
+Commodity markets are integral to the global economy. Developments in these
+markets have major effects on the global economy. In turn, changes in the global
+economy materially affect commodity markets. A deeper understanding of the
+determinants of the supply of and demand for commodities can help clarify the nature
+of commodity price movements and what drives them. Understanding those
+determinants would also help assess how commodity market developments, such as oil
+price shocks, affect commodity-exporting and commodity-importing countries. Such
+analysis is critical to the design of policy frameworks that facilitate the economic
+objectives of sustainable growth, inflation stability, poverty reduction, food security, and
+the mitigation of climate change.
+Several major events since the beginning of the current decade highlight the complex
+and volatile relationship between commodity markets and economic activity. In 2020,
+the COVID-19 pandemic triggered a sharp fall in global demand for commodities—
+especially crude oil, which experienced its sharpest one-month price decline ever in April
+2020. Prices subsequently rebounded, however, amid capacity constraints, supply
+bottlenecks, and a strong economic recovery. In 2022, the war in Ukraine led to further
+disruptions to commodity markets and more costly patterns of trade, with a major
+diversion of trade in energy as Ukraine was unable to export grains while some countries
+banned imports of Russian energy. The disruption also displayed how interrelated
+commodity markets are—high energy prices pushed up the production costs of other
+commodities (such as fertilizers), fueling a broad-based increase in commodity prices.
+The increase in prices had major economic and humanitarian impacts, especially for
+energy- and food-importing economies. In the longer term, the war may have
+accelerated the energy transition as countries seek to reduce their reliance on fossil fuels.
+Shifts in commodity markets pose challenges for emerging market and developing
+economies (EMDEs). Commodities are critical sources of export and fiscal revenues for
+almost two-thirds of EMDEs, and more than half of the world’s poor reside in
+commodity exporters (World Bank 2018a). The macroeconomic performance in
+commodity-exporting EMDEs and progress on poverty reduction in low-income
+countries (LICs) historically has varied in line with commodity price cycles. This is
+especially so for LICs that rely on a narrow set of commodities (Richaud et al. 2019).
+Commodity price movements may present large terms-of-trade shocks for economies
+that rely heavily on exports of a few commodities. For example, for an oil exporter, a
+OVERVIEW
+2 OVERVIEW COMMODIT Y MARKET S
+fall in the price of oil causes a deterioration in the current account balance and puts
+downward pressure on its currency. Absorbing these shocks can be particularly
+challenging for economies with fixed exchange rates (Drechsel, McLeay, and Tenreyro
+2019; Ha, Kose, and Ohnsorge 2019; World Bank 2020).
+Commodity price cycles can lead to procyclical patterns in public spending. In other
+words, fiscal policy often amplifies the impact of the commodity price cycle on
+economic growth and increases the amplitude of cycles in economic activity (Mendes
+and Pennings 2020; Riera-Crichton, Végh, and Vuletin 2015).
+Commodity price cycles have often created credit booms and busts in EMDEs,
+amplifying the macroeconomic effects. These usually involve international capital flows
+and the supply of domestic credit. Commodity booms have frequently encouraged a
+surge in capital inflows and a build-up of foreign currency debt by domestic borrowers
+that proved excessive when the bust arrived (Masson 2014). Strong growth in domestic
+credit, frequently denominated in foreign currency, has often exacerbated the
+accumulation of risky debt (Koh et al. 2020). Capital inflows can cause a simultaneous
+real appreciation of the domestic currency—whether through nominal currency
+appreciation or domestic inflation—that reduces the competitiveness of the nontradeable
+sector and holds back economic diversification (Ostry et al. 2010). Often,
+surges in capital inflows and undue risk tolerance by lenders during price booms lay the
+groundwork for systemic financial crises when commodity prices decline. Capital flight
+adds to the damaging economic impact of a commodities bust.
+Commodity price shocks can intensify global inflationary pressures. The oil price
+shocks of the mid-1970s triggered a global increase in inflation that was only brought
+under control in the 1980s after central banks imposed steep increases in interest rates.
+Food price inflation can be an especially difficult challenge for LICs because food
+constitutes a large share of consumption and food insecurity is pervasive. Following the
+COVID-19 pandemic, reduced incomes and lost wages, combined with higher domestic
+food prices and supply constraints, exacerbated undernourishment. The number of
+people facing hunger globally increased from 650 million in 2019 to 768 million in
+2020, undoing most of the progress achieved over the past 15 years (FAO 2021).
+Climate change and the transition to more climate-friendly sources of energy add
+another dimension to the uncertainties that roil commodity markets. Climate change
+and more frequent extreme weather events are likely to affect the production of all
+commodities. In what was perhaps a harbinger, in 2021 extreme weather disrupted the
+production of many commodities: droughts reduced hydroelectric generation in several
+countries including Brazil, China, and the United States; freezing weather and
+hurricanes disrupted crude oil and natural gas production in the United States; floods
+interrupted the production and transport of coal and some metals in Australia, and
+drought in Brazil reduced its coffee production to historic lows.
+The energy transition—intended to minimize the worst impacts of climate change—
+will materially alter the production and consumption of commodities. Demand for
+fossil fuels is expected to be flat or decline over the next 30 years, while demand for
+COMMODIT Y MARKETS OVERVIEW 3
+metals and minerals will be boosted by ramped up investment in renewable energy
+infrastructure. The effects on agriculture are less certain and depend on the evolution of
+demand for biofuels. The energy transition will also have major economic and
+geopolitical consequences. Fossil-fuel exporters may see a decline in export and fiscal
+revenues, while metal exporters could receive windfall revenues. Because metal reserves
+are much more geographically concentrated than other commodities, the global
+economy could be more at risk of supply disruptions. The energy transition could also
+lead to additional energy price volatility in the short run if investment in fossil fuels
+declines before there is sufficient alternative renewable energy capacity. Technological
+innovation is likely to generate inherently unpredictable shifts in commodity demand
+and supply. Thus, while the general nature of the energy transition may have a clear
+endpoint (that is, reduced reliance on fossil fuels), the speed at which it takes place and
+the implications for the demand for individual commodities are highly uncertain.
+Main findings and policy challenges
+This volume examines the channels by which developments in the global economy drive
+commodity markets, and how changes in commodity markets can affect commodity
+exporters and importers. The analysis in the following chapters encompasses four broad
+approaches. First, it studies the evolution of commodity markets over the past century
+and identifies similarities and differences among commodity groups. It shows that
+several factors—such as income and population growth, industrialization and
+urbanization, technology, and policy changes—frequently reappear as key drivers of
+supply, demand, and price movements both across commodity groups and over time.
+Second, it quantifies the relative importance of these drivers for different commodity
+groups using an econometric model and concludes that income elasticity plays a crucial
+role in driving the demand for industrial commodities over the long term. Third, it takes
+a detailed look at the nature and drivers of commodity price cycles. Fourth, it assesses
+the impact of commodity price fluctuations on commodity exporters and importers.
+Main findings
+The book offers a range of analytical findings:
+The quantity of commodities consumed has risen enormously over the past century,
+driven by population and income growth (figure 1). Demand for metals has risen tenfold,
+energy six-fold, and food four-fold. The center of commodity demand has shifted
+over the past half-century from advanced economies toward EMDEs. China, in
+particular, has substantially increased its market share in both the production and
+consumption of commodities—especially energy and metals—over the past two decades.
+The relative importance of commodities has shifted over time, as technological
+innovation created new uses for some materials and facilitated substitution among
+commodities. For example, crude oil products replaced coal in transport in the first half
+of the 20th century. Later, natural gas emerged as a major fuel for electricity generation
+and heating. More recently, renewable sources such as solar and wind energy have
+accounted for a growing share of global energy demand as the world shifts toward zero4
+OVERVIEW COMMODIT OF MARKETS
+Global consumption of metal commodities has grown in line with GDP while consumption of
+agricultural commodities resembles population growth. China dominates the consumption of most
+industrial commodities. Production has likewise seen a huge increase, assisted by technological
+developments that have boosted productivity. Commodity exporters, particularly oil exporters, are
+reliant on these commodities for export and fiscal revenue.

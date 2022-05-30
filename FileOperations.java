@@ -32,8 +32,8 @@ public class FileOperations {
         return null;
     }
 
-    void writeToFile(String text, String nameOfFile) {
-        File file = new File(nameOfFile + ".txt");
+    void writeToFile(String text, String path) {
+        File file = new File(path);
         BufferedWriter writer = null;
 
         try {

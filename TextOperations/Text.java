@@ -1,84 +1,10 @@
 package Cesar.TextOperations;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Text {
 
-    public static ArrayList<Integer> compareFrequencyOfLetters(Map<Character, Double> frequencyInText,
-                                                               Map<Character, Double> frequencyInLanguage, ArrayList<Character> characters) {
-        //comapareArray is to store in one place
-        //freguencyInText frequncyInLanguage chiSqr
-        //chiSqr calculates the match between frequencyInText and frequencyInLanguage
-        int arraySize = frequencyInText.size() * frequencyInLanguage.size();
-        Double[][] compareArray = new Double[arraySize][3];
-        int i = 0;
-
-        for (Map.Entry<Character, Double> pair : frequencyInText.entrySet()) {
-            for (Map.Entry<Character, Double> pair2 : frequencyInLanguage.entrySet()) {
-                compareArray[i][0] = pair.getValue();
-                compareArray[i][1] = pair2.getValue();
-                compareArray[i][2] = chiSqr(pair.getValue(), pair2.getValue());
-                i++;
-            }
-        }
-
-//        for (int j = 0; j < compareArray.length; j++) {
-//            System.out.println(compareArray[j][0] + " " + compareArray[j][1] + " " +
-//                    compareArray[j][2]);
-//        }
-
-        double min = compareArray[0][2];
-
-        for (int j = 0; j < compareArray.length; j++) {
-            int compareValue = Double.compare(min, compareArray[j][2]);
-            if (compareValue > 0) {
-                min = compareArray[j][2];
-            }
-        }
-
-        int indexOfMin = 0;
-        ArrayList<Integer> indexOfMinList = new ArrayList<>();
-
-        for (int j = 0; j < compareArray.length; j++) {
-            if (compareArray[j][2] == min) {
-                indexOfMin = j;
-                indexOfMinList.add(j);
-            }
-        }
-
-        for (Integer index : indexOfMinList) {
-            System.out.println("Match: " + min + " at index: " + index);//print only for testing, remove when ready
-
-            char characterMatchText = '\u0000';
-            char characterMatchLanguage = '\u0000';
-
-            for (Map.Entry<Character, Double> pair : frequencyInText.entrySet()) {
-                if (pair.getValue() == (compareArray[index][0])) {
-                    characterMatchText = pair.getKey();
-                }
-            }
-
-            for (Map.Entry<Character, Double> pair : frequencyInLanguage.entrySet()) {
-                if (pair.getValue() == (compareArray[index][1])) {
-                    characterMatchLanguage = pair.getKey();
-                }
-            }
-
-            int indexOfCharMatchText = characters.indexOf(characterMatchText);
-            int indexOfCharMatchLanguage = characters.indexOf(characterMatchLanguage);
-
-            int shiftCalculated = indexOfCharMatchText - indexOfCharMatchLanguage;
-
-            System.out.println("Character in text: " + characterMatchText + " Character in language: " + characterMatchLanguage +
-                    " shift: " + shiftCalculated);
-        }
-
-        return indexOfMinList;
-    }
-
-    private static double chiSqr(double o, double e) {
+    private static double matchFrequenciesByParsonChiSqr(double o, double e) {
         return ((o - e) * (o - e)) / e;
     }
 
@@ -100,6 +26,8 @@ public class Text {
             double singleLetterCount = 0.0;
             for (int j = 0; j < text.length(); j++) {
                 if (text.charAt(j) == '\r' || text.charAt(j) == '\n') continue;
+                //ignore digits, because they are not a part of key
+                if (text.charAt(j) >= 48 && text.charAt(j) <= 57) continue;
                 if (tempChar == text.charAt(j)) {
                     lettersFrequencyInText.put(tempChar, ++singleLetterCount);
                 }
@@ -130,5 +58,158 @@ public class Text {
         }
 
         return characters;
+    }
+
+    //Finds first 5 the most frequnet chracters in text and sample text and compares their position,
+    //in the charactersInLanguage list.
+    //Returnd an ArrayList with text description of the results, including the best shift;
+    public static int findShiftByFrequencyOfLetters(Map<Character, Double> frequencyInText,
+                                                    Map<Character, Double> frequencyInSample,
+                                                    ArrayList<Character> charactersInLanguage) {
+        //transferring TreeMap values into an ArrayList of values in order to sort it ascending
+        ArrayList<Double> frequencyInTextList = new ArrayList<>();
+
+        for (Map.Entry<Character, Double> pair : frequencyInText.entrySet()) {
+            frequencyInTextList.add(pair.getValue());
+        }
+
+        Collections.sort(frequencyInTextList);
+        Collections.reverse(frequencyInTextList);
+
+        //create an Array list of corresponding charactersInLanguage in sorted order
+        ArrayList<Character> charactersInTextList = new ArrayList<>();
+
+        for (Double frequency : frequencyInTextList) {
+            for (Map.Entry<Character, Double> pair : frequencyInText.entrySet()) {
+                if (pair.getValue().equals(frequency)) charactersInTextList.add(pair.getKey());
+            }
+        }
+
+        ArrayList<Double> frequencyInSampleList = new ArrayList<>();
+        ArrayList<Character> charactersInSampleList = new ArrayList<>();
+
+        for (Map.Entry<Character, Double> pair : frequencyInSample.entrySet()) {
+            frequencyInSampleList.add(pair.getValue());
+        }
+
+        Collections.sort(frequencyInSampleList);
+        Collections.reverse(frequencyInSampleList);
+        
+//TODO make it more elegant, resultOfComparePrintList was only for testing purpose
+        ArrayList<String> resultOfCompareToPrintList = new ArrayList<>();
+        String resultOfCompare;
+        ArrayList<Integer> shiftBetweenCharsList = new ArrayList<>();
+
+        int charactersToCompare = 5;
+
+        for (int i = 0; i < charactersToCompare; i++) {
+            resultOfCompare = ("Compare result: ");
+
+            for (Map.Entry<Character, Double> pair : frequencyInText.entrySet()) {
+                if (pair.getValue().equals(frequencyInTextList.get(i))) {
+                    resultOfCompare += " character in text: " + pair.getKey();
+                    charactersInTextList.add(pair.getKey());
+                    char characterInText = pair.getKey();
+                }
+            }
+
+            for (Map.Entry<Character, Double> pair : frequencyInSample.entrySet()) {
+                if (pair.getValue().equals(frequencyInSampleList.get(i))) {
+                    resultOfCompare += " character in sample: " + pair.getKey();
+                    charactersInSampleList.add(pair.getKey());
+                    char characterInSample = pair.getKey();
+                }
+            }
+
+            int shiftBetweenChars = findShiftBetweenCharacters(charactersInTextList.get(i),
+                    charactersInSampleList.get(i), charactersInLanguage);
+            resultOfCompare += " shift between characters: " + shiftBetweenChars;
+            shiftBetweenCharsList.add(shiftBetweenChars);
+            resultOfCompareToPrintList.add(resultOfCompare.toString());
+            resultOfCompare = null;
+        }
+
+        int bestShiftInCompare = findBestShiftInCompare(shiftBetweenCharsList);
+        resultOfCompareToPrintList.add("Best shift: " + Integer.toString(bestShiftInCompare));
+
+        return bestShiftInCompare;
+    }
+
+    public static int findBestShiftInCompare(ArrayList<Integer> shiftBetweenCharsList) {
+
+        int result = 0;
+        Stack<Integer> shiftValuesStack = new Stack<>();
+        ArrayList<Integer> egaulShiftCountList = new ArrayList<>();
+        int countHowManyEquals = 0;
+
+        //remove duplicates
+        shiftValuesStack.push(shiftBetweenCharsList.get(0));
+        for (int i = 1; i < shiftBetweenCharsList.size(); i++) {
+            if (!shiftValuesStack.contains(shiftBetweenCharsList.get(i))) {
+                shiftValuesStack.push(shiftBetweenCharsList.get(i));
+            }
+        }
+
+        //count how many times shift value is repeated in shiftBetweenCharsList
+        int[][] shiftEqualsArray = new int[shiftValuesStack.size()][2];
+        int stackSize = shiftValuesStack.size();
+        for (int i = 0; i < stackSize; i++) {
+            int temp = shiftValuesStack.pop();
+            for (int j = 0; j < shiftBetweenCharsList.size(); j++) {
+                if (temp == shiftBetweenCharsList.get(j)) {
+                    countHowManyEquals++;
+                }
+            }
+            shiftEqualsArray[i][0] = temp;
+            shiftEqualsArray[i][1] = countHowManyEquals;
+            countHowManyEquals = 0;
+        }
+
+        //find which shift value is mostly repeated
+
+        int max = shiftEqualsArray[0][1];
+
+        for (int i = 0; i < stackSize; i++) {
+            if (max < shiftEqualsArray[i][1]) {
+                max = shiftEqualsArray[i][1];
+            }
+        }
+
+        //return value of shift which is mostly repeated
+        for (int i = 0; i < stackSize; i++) {
+            if (shiftEqualsArray[i][1] == max) {
+                result = shiftEqualsArray[i][0];
+            }
+        }
+
+        return result;
+    }
+
+    public static int findShiftBetweenCharacters(char characterInText,
+                                                 char characterInSample,
+                                                 ArrayList<Character> charactersInLanguage) {
+        int indexOfCharTextInCharactersInLanguage = 0;
+        int indexOfCharSampleInCharactersInLanguage = 0;
+        int shiftBetweenChars = 0;
+
+        for (int i = 0; i < charactersInLanguage.size(); i++) {
+            if (charactersInLanguage.get(i).equals(characterInText)) {
+                indexOfCharTextInCharactersInLanguage = i;
+                break;
+            }
+        }
+
+        for (int i = 0; i < charactersInLanguage.size(); i++) {
+            if (charactersInLanguage.get(i).equals(characterInSample)) {
+                indexOfCharSampleInCharactersInLanguage = i;
+                break;
+            }
+        }
+
+
+        shiftBetweenChars = indexOfCharTextInCharactersInLanguage - indexOfCharSampleInCharactersInLanguage;
+        if (shiftBetweenChars < 0) shiftBetweenChars += charactersInLanguage.size();
+
+        return shiftBetweenChars;
     }
 }
