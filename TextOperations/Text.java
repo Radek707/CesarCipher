@@ -32,7 +32,8 @@ public class Text {
         double min = compareArray[0][2];
 
         for (int j = 0; j < compareArray.length; j++) {
-            if (compareArray[j][2] < min) {
+            int compareValue = Double.compare(min, compareArray[j][2]);
+            if (compareValue > 0) {
                 min = compareArray[j][2];
             }
         }

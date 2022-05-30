@@ -136,7 +136,7 @@ public class CesarCode implements Crytpography {
 
         Map<Character, Double> lettersFrequencyInSampleText = new TreeMap<>();
         FileOperations file = new FileOperations();
-        String text2 = file.readFile("sample.txt");
+        String text2 = file.readFile("Files/sample.txt");
         lettersFrequencyInSampleText = Text.findLettersFrequencyInText(text2);
 
         Text.compareFrequencyOfLetters(lettersFrequencyInText, lettersFrequencyInSampleText, key.characters);

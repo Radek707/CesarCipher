@@ -12,19 +12,19 @@ public class Main {
                 CesarCode cesarCode = new CesarCode(key, eng);
 
                 FileOperations sample = new FileOperations();
-                String text = sample.readFile("test.txt");
+                String text = sample.readFile("Files/test.txt");
 
-                sample.writeToFile(cesarCode.enCrypt(text, 4), "encryptedtext");
+                sample.writeToFile(cesarCode.enCrypt(text, 0), "encryptedtext");
 
-//                cesarCode.statisticCrack(sample.readFile("encryptedtext.txt"));
+                cesarCode.statisticCrack(sample.readFile("Files/encryptedtext.txt"));
 //
 //                System.out.println("Shif used in enCrytion: " + cesarCode.shift);
 //                System.out.println("Available characters count: " + key.characters.size());
 //                System.out.println("Available characters: ");
 //                System.out.println(cesarCode.key.characters);
 
-                System.out.println("Brute force result: ");
-                System.out.println(cesarCode.bruteCrack(sample.readFile("encryptedtext.txt")));
+//                System.out.println("Brute force result: ");
+//                System.out.println(cesarCode.bruteCrack(sample.readFile("encryptedtext.txt")));
 //
 //                //System.out.println(cesarCode.deCrypt(sample.readFile("encryptedtext.txt"), 1));
 //
