@@ -94,7 +94,7 @@ public class Text {
 
         Collections.sort(frequencyInSampleList);
         Collections.reverse(frequencyInSampleList);
-        
+
 //TODO make it more elegant, resultOfComparePrintList was only for testing purpose
         ArrayList<String> resultOfCompareToPrintList = new ArrayList<>();
         String resultOfCompare;
@@ -211,5 +211,28 @@ public class Text {
         if (shiftBetweenChars < 0) shiftBetweenChars += charactersInLanguage.size();
 
         return shiftBetweenChars;
+    }
+
+    public static int checkIfTextIsReal(String text) {
+        ArrayList<String> wantedStrings = new ArrayList<>();
+        ArrayList<String> forbiddenStrings = new ArrayList<>();
+        int realityScore = 0;
+
+        wantedStrings.add("the");
+        wantedStrings.add(", ");
+        wantedStrings.add("and");
+        wantedStrings.add("at");
+        wantedStrings.add("on");
+        wantedStrings.add("while");
+
+        forbiddenStrings.add("aa");
+
+        for (int i = 0; i < wantedStrings.size(); i++) {
+            if (text.contains(wantedStrings.get(i))) {
+                realityScore++;
+            }
+        }
+
+        return realityScore;
     }
 }

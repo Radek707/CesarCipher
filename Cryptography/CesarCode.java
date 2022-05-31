@@ -9,8 +9,6 @@ import Cesar.Language.Helper;
 import Cesar.Language.Language;
 import Cesar.TextOperations.Text;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -36,7 +34,7 @@ public class CesarCode implements Crytpography {
     public String enCrypt(String text) {
         text = text.toLowerCase();
 
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
@@ -54,7 +52,7 @@ public class CesarCode implements Crytpography {
     @Override
     public String deCrypt(String text) {
 
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
@@ -75,68 +73,22 @@ public class CesarCode implements Crytpography {
         return result.toString();
     }
 
-    @Override
-    public String bruteCrack(String text) {
-        String result = null;
-        int correctShift = 0;
-        ArrayList<Integer> realityScoreList = new ArrayList<>();
-
-        for (int i = 1; i < sizeOfKey; i++) {
-            shift = i;
-            result = deCrypt(text);
-            realityScoreList.add(checkIfTextIsReal(result));
-        }
-
-        int maxScore = Collections.max(realityScoreList);
-        correctShift = realityScoreList.indexOf(maxScore);
-        shift = correctShift + 1;
-        result = deCrypt(text);
-
-        return result;
-    }
-
-    public static int checkIfTextIsReal(String text) {
-        ArrayList<String> wantedStrings = new ArrayList<>();
-        ArrayList<String> forbiddenStrings = new ArrayList<>();
-        int realityScore = 0;
-
-        wantedStrings.add("the");
-        wantedStrings.add(", ");
-        wantedStrings.add("and");
-        wantedStrings.add("at");
-        wantedStrings.add("on");
-        wantedStrings.add("while");
-
-        forbiddenStrings.add("aa");
-
-        for (int i = 0; i < wantedStrings.size(); i++) {
-            if (text.contains(wantedStrings.get(i))) {
-                realityScore++;
-            }
-        }
-
-        return realityScore;
-    }
-
     /*
     statisticCrack method is using e frequency of letters in English alphabet,
     */
     @Override
     public String statisticCrackWithSampleText(String text, String sampleText) {
         //find frequency of each character in text;
-        Map<Character, Double> lettersFrequencyInText = new TreeMap<>();
-        lettersFrequencyInText = Text.findLettersFrequencyInText(text);
+        Map<Character, Double> lettersFrequencyInText = Text.findLettersFrequencyInText(text);
 
         //find frequency of each character in sample text;
-        Map<Character, Double> lettersFrequencyInSampleText = new TreeMap<>();
-        lettersFrequencyInSampleText = Text.findLettersFrequencyInText(sampleText);
+        Map<Character, Double> lettersFrequencyInSampleText = Text.findLettersFrequencyInText(sampleText);
 
         //find best shift comparing characters frequency between text and sample text
         //5 most frequent characters are compared
         //the best shift is the most repeating shift in those 5
-        int foundShift = Text.findShiftByFrequencyOfLetters(lettersFrequencyInText,
+        shift = Text.findShiftByFrequencyOfLetters(lettersFrequencyInText,
                 lettersFrequencyInSampleText, key.characters);
-        shift = foundShift;
         return deCrypt(text);
     }
 }

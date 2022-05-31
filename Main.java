@@ -1,6 +1,8 @@
 package Cesar;
 
+import Cesar.Cryptography.BruteCrack;
 import Cesar.Cryptography.CesarCode;
+import Cesar.Cryptography.CodeCracking;
 import Cesar.Language.Helper;
 import Cesar.Language.Language;
 
@@ -21,10 +23,10 @@ public class Main {
 
         boolean work = true;
 
-        while (work == true) {
+        while (work) {
             Menu.printMenu();
             int userChoice = Menu.askForIntegerInput();
-            int shift = 0;
+            int shift;
             pathToRead = null;
             textInput = null;
             textOutput = null;
@@ -108,7 +110,8 @@ public class Main {
                         break;
                     }
                     //break the code
-                    textOutput = cesarCode.bruteCrack(textInput);
+                    CodeCracking bruteCrack = new BruteCrack(charactersList, eng, cesarCode);
+                    textOutput = bruteCrack.codeCracking(textInput);
                     System.out.println("Result of brute force is: ");
                     System.out.println(textOutput);
                     //write to file
