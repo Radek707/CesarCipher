@@ -3,6 +3,7 @@ package Cesar;
 import Cesar.Cryptography.BruteCrack;
 import Cesar.Cryptography.CesarCode;
 import Cesar.Cryptography.CodeCracking;
+import Cesar.Cryptography.StatisticCrack;
 import Cesar.Language.Helper;
 import Cesar.Language.Language;
 
@@ -153,7 +154,9 @@ public class Main {
                         break;
                     }
                     //brake the code
-                    textOutput = cesarCode.statisticCrackWithSampleText(textInput, sampleText);
+                    StatisticCrack statisticCrack = new StatisticCrack(charactersList, eng,
+                            cesarCode, sampleText);
+                    textOutput = statisticCrack.codeCracking(textInput);
                     System.out.println("Result of statistic analise is: ");
                     System.out.println(textOutput);
                     //write to file

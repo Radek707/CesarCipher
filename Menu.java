@@ -39,7 +39,7 @@ public class Menu {
         System.out.println("1. Encrypt");
         System.out.println("2. Decrypt");
         System.out.println("3. Break the code using brute force");
-        System.out.println("4. Break the code using statistic analise");
+        System.out.println("4. Break the code using statistic analise based on sample text");
         System.out.println("5. Exit");
     }
 
