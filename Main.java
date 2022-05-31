@@ -7,14 +7,14 @@ import Cesar.Language.Language;
 public class Main {
     public static void main(String[] args) {
         FileOperations file = new FileOperations();
-        String pathToRead = null;
-        String pathToWrite = null;
+        String pathToRead;
+        String pathToWrite;
         Helper charactersList = new Helper();
         Language eng = new Language();
-        CesarCode cesarCode = new CesarCode(charactersList, eng);
-        String textInput = null;
-        String textOutput = null;
-        String userInput = null;
+        CesarCode cesarCode = new CesarCode(charactersList, eng, 0);
+        String textInput;
+        String textOutput;
+        String userInput;
         String sampleText = null;
 
         Menu.printWelcomeMessage();
@@ -78,7 +78,8 @@ public class Main {
                     textInput = file.readFile(pathToRead);
                     System.out.println("Enter a value of shift to decrypt");
                     shift = Menu.askForIntegerInput();
-                    textOutput = cesarCode.deCrypt(textInput, shift);
+                    cesarCode.shift = shift;
+                    textOutput = cesarCode.deCrypt(textInput);
                     System.out.println("Decrypted text is: ");
                     System.out.println(textOutput);
                     //write to file
@@ -106,7 +107,7 @@ public class Main {
                         System.out.println("Try again");
                         break;
                     }
-                    //breke the code
+                    //break the code
                     textOutput = cesarCode.bruteCrack(textInput);
                     System.out.println("Result of brute force is: ");
                     System.out.println(textOutput);
@@ -180,8 +181,8 @@ public class Main {
             System.out.println("Enter a value to shift the alphabet");
             shift = Menu.askForIntegerInput();
         }
-
-        String textOutput = cesarCode.enCrypt(textInput, shift);
+        cesarCode.shift = shift;
+        String textOutput = cesarCode.enCrypt(textInput);
         System.out.println("This is encrypted text: ");
         System.out.println(textOutput);
         return textOutput;

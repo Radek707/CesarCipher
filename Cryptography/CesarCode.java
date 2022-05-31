@@ -15,26 +15,26 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class CesarCode implements Crytpography {
-    public Helper key;
+    private Helper key;
     public int sizeOfKey;
     public int shift;
     Language language;
 
-    public Map<Character, Double> EnglishLettersFrequency = new TreeMap<>();
+    private Map<Character, Double> EnglishLettersFrequency = new TreeMap<>();
 
     private int shiftCalculated;
 
-    public CesarCode(Helper key, Language language) {
+    public CesarCode(Helper key, Language language, int shift) {
         this.key = key;
         this.sizeOfKey = key.characters.size();
         this.language = language;
         EnglishLettersFrequency.putAll(language.lettersFrequencyInLanguage);
+        this.shift = shift;
     }
 
     @Override
-    public String enCrypt(String text, int shift) {
+    public String enCrypt(String text) {
         text = text.toLowerCase();
-        this.shift = shift;
 
         StringBuffer result = new StringBuffer();
 
@@ -52,8 +52,7 @@ public class CesarCode implements Crytpography {
     }
 
     @Override
-    public String deCrypt(String text, int shift) {
-        this.shift = shift;
+    public String deCrypt(String text) {
 
         StringBuffer result = new StringBuffer();
 
@@ -83,13 +82,15 @@ public class CesarCode implements Crytpography {
         ArrayList<Integer> realityScoreList = new ArrayList<>();
 
         for (int i = 1; i < sizeOfKey; i++) {
-            result = deCrypt(text, i);
+            shift = i;
+            result = deCrypt(text);
             realityScoreList.add(checkIfTextIsReal(result));
         }
 
         int maxScore = Collections.max(realityScoreList);
         correctShift = realityScoreList.indexOf(maxScore);
-        result = deCrypt(text, correctShift + 1);
+        shift = correctShift + 1;
+        result = deCrypt(text);
 
         return result;
     }
@@ -135,7 +136,7 @@ public class CesarCode implements Crytpography {
         //the best shift is the most repeating shift in those 5
         int foundShift = Text.findShiftByFrequencyOfLetters(lettersFrequencyInText,
                 lettersFrequencyInSampleText, key.characters);
-
-        return deCrypt(text, foundShift);
+        shift = foundShift;
+        return deCrypt(text);
     }
 }

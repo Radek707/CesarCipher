@@ -1,6 +1,5 @@
 package Cesar;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -16,11 +15,9 @@ User menu
 >>>>>>> origin/main
  */
 public class Menu {
-    ArrayList<String> mainMenu = new ArrayList<>();
-    ArrayList<String> submenu1 = new ArrayList<>();
 
     public static String askUserForStringInput() {
-        String userChoice = null;
+        String userChoice;
 
         Scanner scanner = new Scanner(System.in);
 
