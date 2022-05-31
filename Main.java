@@ -15,6 +15,7 @@ public class Main {
         String textInput = null;
         String textOutput = null;
         String userInput = null;
+        String sampleText = null;
 
         Menu.printWelcomeMessage();
 
@@ -30,7 +31,6 @@ public class Main {
 
             switch (userChoice) {
                 case 1: //ask for file to encrypt
-
                     while (pathToRead == null) {
                         System.out.println("Enter file name for encryption");
                         pathToRead = Menu.askUserForStringInput();
@@ -46,18 +46,34 @@ public class Main {
 
                     System.out.println("File content is : ");
                     System.out.println(textInput);
-
                     //enrypt
                     System.out.println();
-
-                    encrypt(textInput, cesarCode);
-
+                    textOutput = encrypt(textInput, cesarCode);
                     //write to file
-                    Menu.writeTextToFileMenu(textOutput, file);
+                    Menu.printWriteFileMenu();
+                    userInput = Menu.askUserForStringInput();
+
+                    if (userInput.toLowerCase().equals("yes")) {
+                        System.out.println("Enter a file name to save");
+                        pathToWrite = Menu.askUserForStringInput();
+                        if (!file.writeToFile(textOutput, pathToWrite)) {
+                            System.out.println("Try again");
+                        } else System.out.println("File " + pathToWrite + " saved.");
+                    }
                     break;
                 case 2: //ask for file to decrypt
-                    System.out.println("Enter file name to decrypt");
-                    pathToRead = Menu.askUserForStringInput();
+                    while (pathToRead == null) {
+                        System.out.println("Enter file name for encryption");
+                        pathToRead = Menu.askUserForStringInput();
+                        //read file
+                        textInput = file.readFile(pathToRead);
+                    }
+
+                    if (textInput == null) {
+                        System.out.println("Try again");
+                        pathToRead = null;
+                        break;
+                    }
                     //decrypt
                     textInput = file.readFile(pathToRead);
                     System.out.println("Enter a value of shift to decrypt");
@@ -65,27 +81,88 @@ public class Main {
                     textOutput = cesarCode.deCrypt(textInput, shift);
                     System.out.println("Decrypted text is: ");
                     System.out.println(textOutput);
-
                     //write to file
-                    Menu.writeTextToFileMenu(textOutput, file);
+                    Menu.printWriteFileMenu();
+                    userInput = Menu.askUserForStringInput();
+
+                    if (userInput.toLowerCase().equals("yes")) {
+                        System.out.println("Enter a file name to save");
+                        pathToWrite = Menu.askUserForStringInput();
+                        if (!file.writeToFile(textOutput, pathToWrite)) {
+                            System.out.println("Try again");
+                        } else System.out.println("File " + pathToWrite + " saved.");
+                    }
                     break;
                 case 3: //Brute force the code
-                    System.out.println("Under development.");
-//                                        pathToRead = Menu.askUserForStringInput();
-//                                        textInput = file.readFile(pathToRead);
-//                                        textOutput = cesarCode.bruteCrack(textInput);
-//                                        pathToWrite = Menu.askUserForStringInput();
-//                                        file.writeToFile(textInput, pathToWrite);
+                    //ask for file with code to brake
+                    while (pathToRead == null) {
+                        System.out.println("Enter a file name");
+                        pathToRead = Menu.askUserForStringInput();
+                        //read file
+                        textInput = file.readFile(pathToRead);
+                    }
+
+                    if (textInput == null) {
+                        System.out.println("Try again");
+                        break;
+                    }
+                    //breke the code
+                    textOutput = cesarCode.bruteCrack(textInput);
+                    System.out.println("Result of brute force is: ");
+                    System.out.println(textOutput);
+                    //write to file
+                    Menu.printWriteFileMenu();
+                    userInput = Menu.askUserForStringInput();
+
+                    if (userInput.toLowerCase().equals("yes")) {
+                        System.out.println("Enter a file name to save");
+                        pathToWrite = Menu.askUserForStringInput();
+                        if (!file.writeToFile(textOutput, pathToWrite)) {
+                            System.out.println("Try again");
+                        } else System.out.println("File " + pathToWrite + " saved.");
+                    }
                     break;
                 case 4: //Statistic analise
-                    System.out.println("Under development.");
-//                                        pathToRead = Menu.askUserForStringInput();
-//                                        textInput = file.readFile(pathToRead);
-//                                        System.out.println("Provide a file with sample text");
-//                                        pathToRead = Menu.askUserForStringInput();
-//                                        String sampleText = file.readFile(pathToRead);
-//                                        textOutput = cesarCode.statisticCrackWithSampleText(textInput, sampleText);
-//                                        pathToWrite = Menu.askUserForStringInput();
+                    //ask for file with code to brake
+                    while (pathToRead == null) {
+                        System.out.println("Enter a file name with code to brake");
+                        pathToRead = Menu.askUserForStringInput();
+                        //read file
+                        textInput = file.readFile(pathToRead);
+                    }
+
+                    if (textInput == null) {
+                        System.out.println("Try again");
+                        break;
+                    }
+                    //ask for file with sample text
+                    pathToRead = null;
+                    while (pathToRead == null) {
+                        System.out.println("Enter a file name with sample text");
+                        pathToRead = Menu.askUserForStringInput();
+                        //read file
+                        sampleText = file.readFile(pathToRead);
+                    }
+
+                    if (sampleText == null) {
+                        System.out.println("Try again");
+                        break;
+                    }
+                    //brake the code
+                    textOutput = cesarCode.statisticCrackWithSampleText(textInput, sampleText);
+                    System.out.println("Result of statistic analise is: ");
+                    System.out.println(textOutput);
+                    //write to file
+                    Menu.printWriteFileMenu();
+                    userInput = Menu.askUserForStringInput();
+
+                    if (userInput.toLowerCase().equals("yes")) {
+                        System.out.println("Enter a file name to save");
+                        pathToWrite = Menu.askUserForStringInput();
+                        if (!file.writeToFile(textOutput, pathToWrite)) {
+                            System.out.println("Try again");
+                        } else System.out.println("File " + pathToWrite + " saved.");
+                    }
                     break;
                 case 5: //exit program
                     work = false;
@@ -97,7 +174,7 @@ public class Main {
         }
     }
 
-    private static void encrypt(String textInput, CesarCode cesarCode) {
+    private static String encrypt(String textInput, CesarCode cesarCode) {
         int shift = 0;
         while (shift <= 0 || shift > cesarCode.sizeOfKey) {
             System.out.println("Enter a value to shift the alphabet");
@@ -107,5 +184,6 @@ public class Main {
         String textOutput = cesarCode.enCrypt(textInput, shift);
         System.out.println("This is encrypted text: ");
         System.out.println(textOutput);
+        return textOutput;
     }
 }

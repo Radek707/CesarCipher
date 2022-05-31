@@ -42,15 +42,13 @@ public class FileOperations {
         try {
             writer = new BufferedWriter(new FileWriter(file));
             writer.write(text);
+            return true;
         } catch (IOException e) {
             System.out.println("Something went wrong with file writing");
         } finally {
             try {
                 writer.close();
                 return true;
-            } catch (NullPointerException e) {
-                e.printStackTrace();
-                return false;
             } catch (IOException e) {
                 e.printStackTrace();
                 return false;

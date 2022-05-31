@@ -68,19 +68,4 @@ public class Menu {
         System.out.println("Do you want to write text into a file?");
         System.out.println("Enter: Yes or No");
     }
-
-    public static void writeTextToFileMenu(String text, FileOperations file) {
-        String userInput = null;
-        String path = file.mainDirectory;
-
-        Menu.printWriteFileMenu();
-        userInput = Menu.askUserForStringInput();
-
-        if (userInput.toLowerCase().equals("yes")) {
-            System.out.println("Enter a file name to save");
-            String fileName = Menu.askUserForStringInput();
-            path += fileName;
-            file.writeToFile(text, path);
-        }
-    }
 }
