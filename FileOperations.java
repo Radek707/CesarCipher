@@ -4,8 +4,10 @@ import java.io.*;
 
 public class FileOperations {
     // read and write operations on file, for now only sample string
+    String mainDirectory = "Files/";
 
     public String readFile(String path) {
+        path = mainDirectory + path;
         File file = new File(path);
         BufferedReader reader = null;
 
@@ -22,17 +24,18 @@ public class FileOperations {
             return stringBuilder.toString();
         } catch (IOException e) {
             System.out.println("Something went wrong with reading the file");
+            return null;
         } finally {
             try {
                 reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                return null;
             }
         }
-        return null;
     }
 
-    void writeToFile(String text, String path) {
+    public boolean writeToFile(String text, String path) {
+        path = mainDirectory + path;
         File file = new File(path);
         BufferedWriter writer = null;
 
@@ -44,9 +47,15 @@ public class FileOperations {
         } finally {
             try {
                 writer.close();
+                return true;
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+                return false;
             } catch (IOException e) {
                 e.printStackTrace();
+                return false;
             }
         }
     }
 }
+

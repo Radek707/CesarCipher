@@ -1,6 +1,7 @@
 package Cesar;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /*
@@ -18,15 +19,13 @@ public class Menu {
     ArrayList<String> mainMenu = new ArrayList<>();
     ArrayList<String> submenu1 = new ArrayList<>();
 
+    public static String askUserForStringInput() {
+        String userChoice = null;
 
-    public static int menu() {
-        int userChoice = 0;
         Scanner scanner = new Scanner(System.in);
 
-        printMenu();
-        userChoice = scanner.nextInt();
+        userChoice = scanner.nextLine();
 
-        scanner.close();
         return userChoice;
     }
 
@@ -47,25 +46,41 @@ public class Menu {
         System.out.println("5. Exit");
     }
 
-    public static String askForFileName() {
-        String fileName = null;
-
-        System.out.println("Enter file name");
-        Scanner scanner = new Scanner(System.in);
-
-        fileName = scanner.nextLine();
-
-        scanner.close();
-        return fileName;
+    public static void printEncryptSubMenu() {
+        System.out.println("Enter file name to encrypt");
     }
 
-    public static int askForShift() {
-        System.out.println("Enter a value for shifting the alphabet");
-        int shift = 0;
+    public static int askForIntegerInput() {
+        int input = 0;
 
         Scanner scanner = new Scanner(System.in);
-        shift = scanner.nextInt();
 
-        return shift;
+        try {
+            input = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("It was not an integer value");
+        }
+
+        return input;
+    }
+
+    public static void printWriteFileMenu() {
+        System.out.println("Do you want to write text into a file?");
+        System.out.println("Enter: Yes or No");
+    }
+
+    public static void writeTextToFileMenu(String text, FileOperations file) {
+        String userInput = null;
+        String path = file.mainDirectory;
+
+        Menu.printWriteFileMenu();
+        userInput = Menu.askUserForStringInput();
+
+        if (userInput.toLowerCase().equals("yes")) {
+            System.out.println("Enter a file name to save");
+            String fileName = Menu.askUserForStringInput();
+            path += fileName;
+            file.writeToFile(text, path);
+        }
     }
 }
