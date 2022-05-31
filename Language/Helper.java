@@ -1,4 +1,4 @@
-package Cesar.Cryptography;
+package Cesar.Language;
 
 import java.util.ArrayList;
 

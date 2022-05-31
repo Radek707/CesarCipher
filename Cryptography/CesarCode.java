@@ -5,6 +5,7 @@ If the text for encryption contains characters not included in the available cha
  than it will be skipped from encryption
  */
 
+import Cesar.Language.Helper;
 import Cesar.Language.Language;
 import Cesar.TextOperations.Text;
 
