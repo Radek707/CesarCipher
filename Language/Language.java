@@ -36,5 +36,14 @@ public class Language {
         lettersFrequencyInLanguage.put('x', 0.002902);
         lettersFrequencyInLanguage.put('y', 0.017779);
         lettersFrequencyInLanguage.put('z', 0.002722);
+
+        wantedStrings.add("the");
+        wantedStrings.add(", ");
+        wantedStrings.add("and");
+        wantedStrings.add("at");
+        wantedStrings.add("on");
+        wantedStrings.add("while");
+
+        forbiddenStrings.add("aa");
     }
 }

@@ -4,6 +4,8 @@ import Cesar.Cryptography.*;
 import Cesar.Language.Helper;
 import Cesar.Language.Language;
 
+import java.util.Objects;
+
 public class Main {
     public static void main(String[] args) {
         FileOperations file = new FileOperations();
@@ -27,7 +29,6 @@ public class Main {
             int shift;
             pathToRead = null;
             textInput = null;
-            textOutput = null;
 
             switch (userChoice) {
                 case 1: //ask for file to encrypt
@@ -40,7 +41,6 @@ public class Main {
 
                     if (textInput == null) {
                         System.out.println("Try again");
-                        pathToRead = null;
                         break;
                     }
 
@@ -53,7 +53,7 @@ public class Main {
                     Menu.printWriteFileMenu();
                     userInput = Menu.askUserForStringInput();
 
-                    if (userInput.toLowerCase().equals("yes")) {
+                    if (Objects.equals(userInput.toLowerCase(), "yes")) {
                         System.out.println("Enter a file name to save");
                         pathToWrite = Menu.askUserForStringInput();
                         if (!file.writeToFile(textOutput, pathToWrite)) {
@@ -71,7 +71,6 @@ public class Main {
 
                     if (textInput == null) {
                         System.out.println("Try again");
-                        pathToRead = null;
                         break;
                     }
                     //decrypt
@@ -86,7 +85,7 @@ public class Main {
                     Menu.printWriteFileMenu();
                     userInput = Menu.askUserForStringInput();
 
-                    if (userInput.toLowerCase().equals("yes")) {
+                    if (Objects.equals(userInput.toLowerCase(), "yes")) {
                         System.out.println("Enter a file name to save");
                         pathToWrite = Menu.askUserForStringInput();
                         if (!file.writeToFile(textOutput, pathToWrite)) {
@@ -116,7 +115,7 @@ public class Main {
                     Menu.printWriteFileMenu();
                     userInput = Menu.askUserForStringInput();
 
-                    if (userInput.toLowerCase().equals("yes")) {
+                    if (Objects.equals(userInput.toLowerCase(), "yes")) {
                         System.out.println("Enter a file name to save");
                         pathToWrite = Menu.askUserForStringInput();
                         if (!file.writeToFile(textOutput, pathToWrite)) {
@@ -160,7 +159,7 @@ public class Main {
                     Menu.printWriteFileMenu();
                     userInput = Menu.askUserForStringInput();
 
-                    if (userInput.toLowerCase().equals("yes")) {
+                    if (Objects.equals(userInput.toLowerCase(), "yes")) {
                         System.out.println("Enter a file name to save");
                         pathToWrite = Menu.askUserForStringInput();
                         if (!file.writeToFile(textOutput, pathToWrite)) {
@@ -191,7 +190,7 @@ public class Main {
                     Menu.printWriteFileMenu();
                     userInput = Menu.askUserForStringInput();
 
-                    if (userInput.toLowerCase().equals("yes")) {
+                    if (Objects.equals(userInput.toLowerCase(), "yes")) {
                         System.out.println("Enter a file name to save");
                         pathToWrite = Menu.askUserForStringInput();
                         if (!file.writeToFile(textOutput, pathToWrite)) {
@@ -200,10 +199,10 @@ public class Main {
                     }
                     break;
                 case 6://exit program
-                    break;
-                default:
                     work = false;
                     Menu.printEndMessage();
+                    break;
+                default:
                     System.out.println("Enter a proper choice.");
             }
         }

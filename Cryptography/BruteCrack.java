@@ -21,13 +21,13 @@ public class BruteCrack implements CodeCracking {
     @Override
     public String codeCracking(String text) {
         String result;
-        int correctShift = 0;
+        int correctShift;
         ArrayList<Integer> realityScoreList = new ArrayList<>();
 
         for (int i = 1; i < characters.characters.size(); i++) {
             cesarCode.shift = i;
             result = cesarCode.deCrypt(text);
-            realityScoreList.add(Text.checkIfTextIsReal(result));
+            realityScoreList.add(Text.checkIfTextIsReal(result, english));
         }
 
         int maxScore = Collections.max(realityScoreList);

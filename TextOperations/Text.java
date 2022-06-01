@@ -1,5 +1,7 @@
 package Cesar.TextOperations;
 
+import Cesar.Language.Language;
+
 import java.util.*;
 
 public class Text {
@@ -9,7 +11,7 @@ public class Text {
     }
 
     public static Map<Character, Double> findLettersFrequencyInText(String text) {
-        ArrayList<Character> charactersUsedInText = new ArrayList<>();
+        ArrayList<Character> charactersUsedInText;
         charactersUsedInText = findCharactersUsedInText(text);
 
         Map<Character, Double> lettersFrequencyInText = new TreeMap<>();
@@ -62,11 +64,11 @@ public class Text {
 
     //Finds first 5 the most frequnet chracters in text and sample text and compares their position,
     //in the charactersInLanguage list.
-    //Returnd an ArrayList with text description of the results, including the best shift;
+    //Return an ArrayList with text description of the results, including the best shift;
     public static int findShiftByFrequencyOfLetters(Map<Character, Double> frequencyInText,
                                                     Map<Character, Double> frequencyInSample,
                                                     ArrayList<Character> charactersInLanguage) {
-        //transferring TreeMap values into an ArrayList of values in order to sort it ascending
+        //transferring TreeMap values into an ArrayList of values in order to sort in ascending
         ArrayList<Double> frequencyInTextList = new ArrayList<>();
 
         for (Map.Entry<Character, Double> pair : frequencyInText.entrySet()) {
@@ -76,7 +78,7 @@ public class Text {
         Collections.sort(frequencyInTextList);
         Collections.reverse(frequencyInTextList);
 
-        //create an Array list of corresponding charactersInLanguage in sorted order
+        //create an Array list in sorted order
         ArrayList<Character> charactersInTextList = new ArrayList<>();
 
         for (Double frequency : frequencyInTextList) {
@@ -125,12 +127,12 @@ public class Text {
                     charactersInSampleList.get(i), charactersInLanguage);
             resultOfCompare += " shift between characters: " + shiftBetweenChars;
             shiftBetweenCharsList.add(shiftBetweenChars);
-            resultOfCompareToPrintList.add(resultOfCompare.toString());
+            resultOfCompareToPrintList.add(resultOfCompare);
             resultOfCompare = null;
         }
 
         int bestShiftInCompare = findBestShiftInCompare(shiftBetweenCharsList);
-        resultOfCompareToPrintList.add("Best shift: " + Integer.toString(bestShiftInCompare));
+        resultOfCompareToPrintList.add("Best shift: " + bestShiftInCompare);
 
         return bestShiftInCompare;
     }
@@ -190,7 +192,7 @@ public class Text {
                                                  ArrayList<Character> charactersInLanguage) {
         int indexOfCharTextInCharactersInLanguage = 0;
         int indexOfCharSampleInCharactersInLanguage = 0;
-        int shiftBetweenChars = 0;
+        int shiftBetweenChars;
 
         for (int i = 0; i < charactersInLanguage.size(); i++) {
             if (charactersInLanguage.get(i).equals(characterInText)) {
@@ -213,23 +215,21 @@ public class Text {
         return shiftBetweenChars;
     }
 
-    public static int checkIfTextIsReal(String text) {
-        ArrayList<String> wantedStrings = new ArrayList<>();
-        ArrayList<String> forbiddenStrings = new ArrayList<>();
+    public static int checkIfTextIsReal(String text, Language language) {
+        ArrayList<String> wantedStrings = new ArrayList<>(language.wantedStrings);
+        ArrayList<String> forbiddenStrings = new ArrayList<String>(language.forbiddenStrings);
+
         int realityScore = 0;
-
-        wantedStrings.add("the");
-        wantedStrings.add(", ");
-        wantedStrings.add("and");
-        wantedStrings.add("at");
-        wantedStrings.add("on");
-        wantedStrings.add("while");
-
-        forbiddenStrings.add("aa");
 
         for (int i = 0; i < wantedStrings.size(); i++) {
             if (text.contains(wantedStrings.get(i))) {
                 realityScore++;
+            }
+        }
+
+        for (int i = 0; i < forbiddenStrings.size(); i++) {
+            if (text.contains(forbiddenStrings.get(i))) {
+                realityScore -= 5;
             }
         }
 
