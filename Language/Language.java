@@ -1,10 +1,13 @@
 package Cesar.Language;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class Language {
     public Map<Character, Double> lettersFrequencyInLanguage = new TreeMap<>();
+    public ArrayList<String> wantedStrings = new ArrayList<>();
+    public ArrayList<String> forbiddenStrings = new ArrayList<>();
 
     public Language() {
         lettersFrequencyInLanguage.put('a', 0.084966);

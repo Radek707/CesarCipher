@@ -40,7 +40,8 @@ public class Menu {
         System.out.println("2. Decrypt");
         System.out.println("3. Break the code using brute force");
         System.out.println("4. Break the code using statistic analise based on sample text");
-        System.out.println("5. Exit");
+        System.out.println("5. Break the code using statistic analise based on frequencies of letters in English");
+        System.out.println("6. Exit");
     }
 
     public static void printEncryptSubMenu() {

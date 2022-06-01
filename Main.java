@@ -1,9 +1,6 @@
 package Cesar;
 
-import Cesar.Cryptography.BruteCrack;
-import Cesar.Cryptography.CesarCode;
-import Cesar.Cryptography.CodeCracking;
-import Cesar.Cryptography.StatisticCrack;
+import Cesar.Cryptography.*;
 import Cesar.Language.Helper;
 import Cesar.Language.Language;
 
@@ -171,11 +168,42 @@ public class Main {
                         } else System.out.println("File " + pathToWrite + " saved.");
                     }
                     break;
-                case 5: //exit program
-                    work = false;
-                    Menu.printEndMessage();
+                case 5: //Break the code using staistic analise based on frequencies of letters in English
+                    //ask for file with code to brake
+                    while (pathToRead == null) {
+                        System.out.println("Enter a file name with code to brake");
+                        pathToRead = Menu.askUserForStringInput();
+                        //read file
+                        textInput = file.readFile(pathToRead);
+                    }
+
+                    if (textInput == null) {
+                        System.out.println("Try again");
+                        break;
+                    }
+                    //brake the code
+                    CrackByLanguageRules crackByLanguageRules = new CrackByLanguageRules(charactersList,
+                            eng, cesarCode);
+                    textOutput = crackByLanguageRules.codeCracking(textInput);
+                    System.out.println("Result of statistic analise is: ");
+                    System.out.println(textOutput);
+                    //write to file
+                    Menu.printWriteFileMenu();
+                    userInput = Menu.askUserForStringInput();
+
+                    if (userInput.toLowerCase().equals("yes")) {
+                        System.out.println("Enter a file name to save");
+                        pathToWrite = Menu.askUserForStringInput();
+                        if (!file.writeToFile(textOutput, pathToWrite)) {
+                            System.out.println("Try again");
+                        } else System.out.println("File " + pathToWrite + " saved.");
+                    }
+                    break;
+                case 6://exit program
                     break;
                 default:
+                    work = false;
+                    Menu.printEndMessage();
                     System.out.println("Enter a proper choice.");
             }
         }
